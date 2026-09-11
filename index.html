@@ -375,7 +375,7 @@
     <div class="meta-row">
       <span class="ico">📅</span>
       <span class="lbl">活动时间</span>
-      <span class="val">2026.09.23&nbsp;&nbsp;18:30 起</span>
+      <span class="val">2026.09.23&nbsp;18:30</span>
     </div>
     <div class="meta-row">
       <span class="ico">📍</span>
@@ -418,7 +418,7 @@
       </div>
       <div class="hl">
         <div class="ico">🎨</div>
-        <h3>儿童专属游戏+DIY</h3>
+        <h3>儿童游戏DIY</h3>
         <p>宝贝们的手作时光<br>童趣闹中秋</p>
       </div>
       <div class="hl">
@@ -465,11 +465,11 @@
   <section class="bobing reveal">
     <div class="divider"><span class="diamond"></span></div>
     <h2 class="sec" style="justify-content: center;">博饼小游戏 <span class="tag">PLAY</span></h2>
-    <p class="game-intro">六骰一掷，博个好彩头，看看你能博中什么科名？</p>
+    <p class="game-intro">六骰一掷，博个好彩头</p>
     <div class="dice-row" id="diceRow"></div>
-    <div class="game-result" id="gameResult">点击「掷骰博饼」，试试今晚的手气</div>
+    <div class="game-result" id="gameResult">点击「掷骰博饼」，试试手气</div>
     <button class="roll-btn" id="rollBtn" type="button">掷骰博饼</button>
-    <p class="game-note">* 博饼口诀：四点为红，四颗同点即「四进」；现场以实际规则与奖品为准，本小游戏仅供预热试手气</p>
+    <p class="game-note">* 博饼游戏以现场实际规则与奖品为准，本小游戏仅供预热试手气</p>
   </section>
 
   <footer class="reveal">
@@ -514,33 +514,20 @@
       });
     }
 
-    // 传统博饼判定：状元系 > 榜眼(对堂) > 探花(三红) > 进士(四进) > 举人(二举) > 秀才(一秀)
+    // 3.0 简化规则：状元级 > 对堂级 > 三红级 > 四进级 > 二举级 > 一秀级 > 无等级
     function bobingTitle(d) {
-      var counts = {}, c4 = 0, maxCount = 0, k;
-      d.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; if (x === 4) c4++; });
+      var counts = {}, c4 = 0, maxCount = 0, sum = 0, k;
+      d.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; if (x === 4) c4++; sum += x; });
       for (k in counts) if (counts[k] > maxCount) maxCount = counts[k];
       var straight = [1, 2, 3, 4, 5, 6].every(function (x) { return counts[x] === 1; });
-      if (c4 === 6) return ['六抔红', '状元', 'top'];
-      if (c4 === 4 && counts[1] === 2) return ['状元插金花', '状元', 'top'];
-      if (c4 === 5) return ['五红', '状元', 'top'];
-      if (maxCount === 5 && c4 !== 5) return ['五子', '状元', 'top'];
-      if (c4 === 4) return ['四点红', '状元', 'top'];
-      if (straight) return ['对堂', '榜眼', ''];
-      if (c4 === 3) return ['三红', '探花', ''];
-      if (maxCount === 4) return ['四进', '进士', ''];
-      if (c4 === 2) return ['二举', '举人', ''];
-      if (c4 === 1) return ['一秀', '秀才', ''];
-      return ['白堂', '', ''];
+      if (c4 >= 4) return ['状元级', 'top', '好彩头！电饭煲在向你招手'];
+      if (straight) return ['对堂级', '', '电磁炉稳稳到手！'];
+      if (c4 === 3) return ['三红级', '', '一箱牛奶抱回家！'];
+      if (maxCount === 4) return ['四进级', '', '精美好礼离你更近一步'];
+      if (c4 === 2) return ['二举级', '', '稳稳的幸福，好礼有你份'];
+      if (c4 === 1) return ['一秀级', '', '小彩头到手，再掷更佳'];
+      return ['无等级', '', '点数总和 ' + sum + '，差一点点，再掷一次！'];
     }
-    var FLAVOR = {
-      '状元': '好彩头！电饭煲在向你招手',
-      '榜眼': '电磁炉稳稳到手！',
-      '探花': '一箱牛奶抱回家！',
-      '进士': '精美好礼离你更近一步',
-      '举人': '稳稳的幸福，好礼有你份',
-      '秀才': '小彩头到手，再掷更佳',
-      '': '差一点点，再掷一次！'
-    };
 
     [1, 2, 3, 4, 5, 6].forEach(function (v) {
       var d = document.createElement('div');
@@ -561,9 +548,9 @@
         dice.forEach(function (d) { d.classList.remove('rolling'); });
         var vals = dice.map(function (d) { return +d.dataset.v; });
         var t = bobingTitle(vals);
-        result.innerHTML = '博中「' + t[0] + '」' +
-          (t[1] ? '<span class="tier ' + t[2] + '">' + t[1] + '</span>' : '') +
-          '<span class="flavor">' + FLAVOR[t[1]] + '</span>';
+        var lead = t[0] === '无等级' ? '本次' : '博中';
+        result.innerHTML = lead + '<span class="tier ' + t[1] + '">' + t[0] + '</span>' +
+          '<span class="flavor">' + t[2] + '</span>';
         btn.disabled = false;
       }, 750);
     });
