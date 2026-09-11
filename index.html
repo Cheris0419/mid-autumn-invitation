@@ -159,8 +159,8 @@
     color: #6b430f; font-size: 17px;
   }
   .meta-row .lbl { font-size: 15px; color: var(--ink-soft); letter-spacing: 1px; flex: none; }
-  .meta-row .val { font-size: 16.5px; font-weight: 700; color: var(--red); letter-spacing: .5px; white-space: nowrap; }
-  @media (max-width: 380px) { .meta-row .val { white-space: normal; font-size: 15px; } }
+  .meta-row .val { font-size: 15.5px; font-weight: 700; color: var(--red); letter-spacing: .5px; white-space: nowrap; }
+  @media (max-width: 380px) { .meta-row .val { white-space: normal; font-size: 14.5px; } }
   .meta-row .val.plain { color: var(--ink); }
   .welcome { text-align: center; margin-top: 16px; font-size: 17px; letter-spacing: 1.5px; }
   .welcome b { color: var(--gold-deep); }
@@ -170,7 +170,7 @@
     margin: 18px 4px 0; padding: 13px 16px;
     border: 1px dashed rgba(192, 57, 43, .55);
     border-radius: 12px; background: rgba(192, 57, 43, .06);
-    font-size: 14px; line-height: 1.75; color: var(--red);
+    font-size: 13px; line-height: 1.75; color: var(--red);
   }
   .notice b { letter-spacing: 1px; }
 
@@ -209,16 +209,8 @@
   }
   .hl.big { grid-column: 1 / -1; }
   .hl .ico { font-size: 30px; line-height: 1; }
-  .hl h3 { margin-top: 8px; font-size: 18.5px; letter-spacing: 2px; color: var(--ink); }
+  .hl h3 { margin-top: 8px; font-size: 18px; letter-spacing: 1px; color: var(--ink); }
   .hl p { margin-top: 6px; font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); }
-
-  .songs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; }
-  .songs span {
-    font-size: 13.5px; letter-spacing: 1px; color: #6b430f;
-    background: linear-gradient(160deg, #f9e9c6, #f0d49a);
-    border: 1px solid rgba(168, 106, 18, .35);
-    border-radius: 999px; padding: 5px 12px;
-  }
 
   /* 奖品 */
   .prize-list { display: grid; gap: 10px; }
@@ -239,36 +231,74 @@
   .prize .name small { font-size: 12.5px; font-weight: 400; color: var(--ink-soft); letter-spacing: 1px; margin-left: 8px; }
   .prize-extra { margin-top: 10px; text-align: center; font-size: 14px; letter-spacing: 1px; color: var(--ink-soft); }
 
-  .abc { margin-top: 16px; display: grid; gap: 10px; }
-  .abc-row {
-    display: flex; gap: 12px; align-items: flex-start;
-    background: rgba(255, 252, 244, .7);
-    border: 1px solid rgba(200, 137, 42, .25);
-    border-radius: 12px; padding: 11px 14px;
+  .pg-label {
+    display: flex; align-items: center; gap: 10px;
+    margin: 16px 2px 10px; font-size: 16.5px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink-soft);
   }
-  .abc-row .lv {
-    flex: none; width: 30px; height: 30px; border-radius: 50%;
-    display: grid; place-items: center; margin-top: 2px;
-    font-size: 15px; font-weight: 700; color: #fff7ea;
+  .pg-label .lv {
+    flex: none; width: 26px; height: 26px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 14px; font-weight: 700; color: #fff7ea;
     background: linear-gradient(160deg, #d8a24a, #b07514);
   }
-  .abc-row:nth-child(1) .lv { background: linear-gradient(160deg, #d8433a, #a5251c); }
-  .abc-row p { font-size: 14px; line-height: 1.8; letter-spacing: .5px; color: var(--ink); }
-  .abc-row p b { color: var(--gold-deep); margin-right: 6px; }
+  .pg-label::after {
+    content: ""; flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(200, 137, 42, .5), transparent);
+  }
 
   /* 尾部 */
   footer { text-align: center; margin-top: 30px; }
   .footer-motto { font-size: 21px; letter-spacing: 3px; color: var(--ink); }
   .footer-sub { margin-top: 6px; font-size: 14px; letter-spacing: 2px; color: var(--ink-soft); }
-  .qr-box {
-    width: max-content; margin: 18px auto 0; padding: 10px 10px 6px;
-    background: #fff; border: 1px solid rgba(168, 106, 18, .35); border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(168, 106, 18, .15);
-  }
-  .qr-box img { display: block; width: 118px; height: 118px; }
-  .qr-tip { margin-top: 12px; font-size: 13.5px; letter-spacing: 1.5px; color: var(--ink-soft); }
-  .qr-tip a { color: var(--gold-deep); text-decoration: none; border-bottom: 1px dotted var(--gold-deep); }
   .org { margin-top: 16px; font-size: 15px; letter-spacing: 4px; color: var(--ink-soft); }
+
+  /* 线上灯谜按钮 */
+  .riddle-btn {
+    display: inline-block; margin-top: 12px; padding: 10px 24px;
+    background: linear-gradient(160deg, #d8433a, #a5251c);
+    color: #fff7ea; text-decoration: none;
+    font-size: 15px; letter-spacing: 2px;
+    border-radius: 999px; box-shadow: 0 4px 12px rgba(165, 37, 28, .35);
+    transition: transform .2s ease;
+  }
+  .riddle-btn:hover { transform: translateY(-2px); }
+
+  /* 博饼小游戏 */
+  .bobing { text-align: center; }
+  .game-intro { font-size: 14.5px; color: var(--ink-soft); letter-spacing: 1px; }
+  .dice-row { display: flex; justify-content: center; gap: 10px; margin: 18px 0 4px; flex-wrap: wrap; }
+  .die {
+    width: 46px; height: 46px; border-radius: 10px;
+    background: linear-gradient(160deg, #fffdf6, #f7ecd4);
+    border: 1.5px solid rgba(168, 106, 18, .45);
+    box-shadow: 0 3px 8px rgba(168, 106, 18, .18);
+    display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
+    padding: 7px; gap: 2px;
+  }
+  .die .pip { width: 7px; height: 7px; border-radius: 50%; background: var(--ink); place-self: center; }
+  .die .pip.red { background: var(--red); }
+  .die.rolling { animation: shake .55s ease-in-out infinite; }
+  @keyframes shake {
+    0%, 100% { transform: rotate(-9deg) translateY(0); }
+    50% { transform: rotate(11deg) translateY(-5px); }
+  }
+  .game-result { min-height: 58px; margin: 12px auto 4px; font-size: 19px; font-weight: 700; letter-spacing: 2px; color: var(--ink); }
+  .game-result .tier {
+    display: inline-block; margin-left: 8px; padding: 3px 14px; border-radius: 999px;
+    color: #fff7ea; background: linear-gradient(160deg, #d8a24a, #b07514); font-size: 15px;
+  }
+  .game-result .tier.top { background: linear-gradient(160deg, #d8433a, #a5251c); }
+  .game-result .flavor { display: block; margin-top: 7px; font-size: 14px; font-weight: 400; letter-spacing: 1px; color: var(--ink-soft); }
+  .roll-btn {
+    margin-top: 10px; padding: 12px 36px; font-family: inherit;
+    font-size: 17px; letter-spacing: 4px; text-indent: 4px;
+    color: #fff7ea; background: linear-gradient(160deg, #d8a24a, #b07514);
+    border: none; border-radius: 999px; cursor: pointer;
+    box-shadow: 0 5px 14px rgba(176, 117, 20, .4);
+  }
+  .roll-btn:disabled { opacity: .6; cursor: wait; }
+  .game-note { margin-top: 12px; font-size: 12.5px; letter-spacing: 1px; color: rgba(122, 82, 48, .75); }
 
   /* 入场动画 */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -363,11 +393,13 @@
   <section class="reveal">
     <h2 class="sec">活动流程 <span class="tag">SCHEDULE</span></h2>
     <div class="timeline">
-      <div class="tl-item"><div class="t">09:00 – 18:00</div><div class="e">布 场</div></div>
-      <div class="tl-item"><div class="t">18:00 – 18:20</div><div class="e">入 场</div><div class="d">签到入场，领取游园通行</div></div>
-      <div class="tl-item"><div class="t">18:20 – 18:30</div><div class="e">开 幕</div></div>
-      <div class="tl-item"><div class="t">18:30 – 21:00</div><div class="e">博饼 · 游戏抽奖 · K 歌</div><div class="d">八大看点轮番登场，惊喜连连</div></div>
-      <div class="tl-item"><div class="t">21:00 – 21:30</div><div class="e">撤 场</div><div class="d">满载而归，月下道别</div></div>
+      <div class="tl-item"><div class="t">18:30 – 18:45</div><div class="e">签到开场</div></div>
+      <div class="tl-item"><div class="t">18:45 – 19:10</div><div class="e">自由游园</div></div>
+      <div class="tl-item"><div class="t">19:10 – 19:40</div><div class="e">三轮博饼</div></div>
+      <div class="tl-item"><div class="t">19:40 – 20:05</div><div class="e">自由游园</div></div>
+      <div class="tl-item"><div class="t">20:05 – 20:20</div><div class="e">赏月祈福仪式</div></div>
+      <div class="tl-item"><div class="t">20:20 – 20:45</div><div class="e">自由游园</div></div>
+      <div class="tl-item"><div class="t">20:45 – 21:00</div><div class="e">终极大抽奖</div></div>
     </div>
   </section>
 
@@ -381,46 +413,68 @@
       </div>
       <div class="hl">
         <div class="ico">🎡</div>
-        <h3>游戏抽奖</h3>
-        <p>8 大小游戏畅玩<br>边玩边抽惊喜奖</p>
+        <h3>游戏环节</h3>
+        <p>趣味游戏畅玩<br>欢乐不停歇</p>
+      </div>
+      <div class="hl">
+        <div class="ico">🎨</div>
+        <h3>儿童专属游戏+DIY</h3>
+        <p>宝贝们的手作时光<br>童趣闹中秋</p>
+      </div>
+      <div class="hl">
+        <div class="ico">🍰</div>
+        <h3>茶歇</h3>
+        <p>月饼甜点精致茶点<br>共享团圆味</p>
+      </div>
+      <div class="hl">
+        <div class="ico">🎁</div>
+        <h3>抽奖环节</h3>
+        <p>惊喜大奖轮番送<br>花落谁家见分晓</p>
+      </div>
+      <div class="hl">
+        <div class="ico">🎤</div>
+        <h3>K歌挑战</h3>
+        <p>中秋曲目共 8 首<br>唱响月圆之夜</p>
       </div>
       <div class="hl big">
-        <div class="ico">🎤</div>
-        <h3>K 歌挑战</h3>
-        <p>中秋挑战曲目共 8 首，唱响月圆之夜：</p>
-        <div class="songs">
-          <span>但愿人长久</span><span>夜空中最亮的星</span><span>月亮惹的祸</span><span>爱你</span>
-          <span>月亮之上</span><span>青花瓷</span><span>知否知否</span><span>画心</span>
-        </div>
+        <div class="ico">🏮</div>
+        <h3>线上灯谜</h3>
+        <p>千条灯谜在线猜，动动手指赢好彩头：</p>
+        <a class="riddle-btn" href="https://ks.wjx.com/vm/tEMzglx.aspx#" target="_blank" rel="noopener">👉 点击参与线上灯谜</a>
       </div>
     </div>
   </section>
 
   <section class="reveal">
     <h2 class="sec">奖品设置 <span class="tag">PRIZES</span></h2>
+    <div class="pg-label"><span class="lv">抽</span>第一类 · 抽奖</div>
     <div class="prize-list">
-      <div class="prize top"><span class="grade">特等奖</span><span class="name">电动车</span></div>
-      <div class="prize"><span class="grade">一等奖</span><span class="name">洗衣机</span></div>
-      <div class="prize"><span class="grade">二等奖</span><span class="name">小冰箱</span></div>
-      <div class="prize"><span class="grade">三等奖</span><span class="name">电饭煲</span></div>
+      <div class="prize top"><span class="grade">特等奖</span><span class="name">洗衣机</span></div>
+      <div class="prize"><span class="grade">一等奖</span><span class="name">小冰箱</span></div>
     </div>
-    <p class="prize-extra">更有精美行李箱等多重好礼等你带回家</p>
 
-    <div class="abc">
-      <div class="abc-row"><span class="lv">A</span><p><b>A 类好礼</b>工会礼盒、加多宝礼盒、手提行李箱、油、洗衣液</p></div>
-      <div class="abc-row"><span class="lv">B</span><p><b>B 类好礼</b>洗洁精、毛巾、垃圾袋、纸巾（提）、薯片、饮料、奶茶</p></div>
-      <div class="abc-row"><span class="lv">C</span><p><b>C 类好礼</b>泡面、果冻、饮料、纸巾（条）、肥皂</p></div>
+    <div class="pg-label"><span class="lv">博</span>第二类 · 博饼</div>
+    <div class="prize-list">
+      <div class="prize top"><span class="grade">状　元</span><span class="name">电饭煲</span></div>
+      <div class="prize"><span class="grade">榜　眼</span><span class="name">电磁炉</span></div>
+      <div class="prize"><span class="grade">探　花</span><span class="name">一箱牛奶</span></div>
     </div>
+    <p class="prize-extra">更多精美好礼等你带回家</p>
+  </section>
+
+  <section class="bobing reveal">
+    <div class="divider"><span class="diamond"></span></div>
+    <h2 class="sec" style="justify-content: center;">博饼小游戏 <span class="tag">PLAY</span></h2>
+    <p class="game-intro">六骰一掷，博个好彩头，看看你能博中什么科名？</p>
+    <div class="dice-row" id="diceRow"></div>
+    <div class="game-result" id="gameResult">点击「掷骰博饼」，试试今晚的手气</div>
+    <button class="roll-btn" id="rollBtn" type="button">掷骰博饼</button>
+    <p class="game-note">* 博饼口诀：四点为红，四颗同点即「四进」；现场以实际规则与奖品为准，本小游戏仅供预热试手气</p>
   </section>
 
   <footer class="reveal">
-    <div class="divider"><span class="diamond"></span></div>
     <div class="footer-motto">丽珠福兴邀您一起过中秋</div>
     <div class="footer-sub">2026.09.23 晚 18:30<br>公司篮球场不见不散</div>
-    <div class="qr-box">
-      <img src="data:image/png;base64,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" alt="活动详情二维码">
-    </div>
-    <p class="qr-tip">长按识别或扫描二维码，查看活动详情<br>详情页：<a href="https://h5.eqxiu.com/s/pPbhgXaz" target="_blank" rel="noopener">h5.eqxiu.com/s/pPbhgXaz</a></p>
     <p class="org">—— 丽珠福兴 · 敬上 ——</p>
   </footer>
 </main>
@@ -438,6 +492,81 @@
       });
     }, { threshold: 0.12 });
     els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // ===== 博饼小游戏 =====
+  (function () {
+    var PIPS = { 1: [5], 2: [1, 9], 3: [1, 5, 9], 4: [1, 3, 7, 9], 5: [1, 3, 5, 7, 9], 6: [1, 3, 4, 6, 7, 9] };
+    var row = document.getElementById('diceRow');
+    var btn = document.getElementById('rollBtn');
+    var result = document.getElementById('gameResult');
+    if (!row || !btn || !result) return;
+    var dice = [];
+
+    function renderDie(container, value) {
+      container.innerHTML = '';
+      container.dataset.v = value;
+      PIPS[value].forEach(function (cell) {
+        var p = document.createElement('span');
+        p.className = 'pip' + ((value === 4 || value === 1) ? ' red' : '');
+        p.style.gridArea = Math.ceil(cell / 3) + ' / ' + (((cell - 1) % 3) + 1);
+        container.appendChild(p);
+      });
+    }
+
+    // 传统博饼判定：状元系 > 榜眼(对堂) > 探花(三红) > 进士(四进) > 举人(二举) > 秀才(一秀)
+    function bobingTitle(d) {
+      var counts = {}, c4 = 0, maxCount = 0, k;
+      d.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; if (x === 4) c4++; });
+      for (k in counts) if (counts[k] > maxCount) maxCount = counts[k];
+      var straight = [1, 2, 3, 4, 5, 6].every(function (x) { return counts[x] === 1; });
+      if (c4 === 6) return ['六抔红', '状元', 'top'];
+      if (c4 === 4 && counts[1] === 2) return ['状元插金花', '状元', 'top'];
+      if (c4 === 5) return ['五红', '状元', 'top'];
+      if (maxCount === 5 && c4 !== 5) return ['五子', '状元', 'top'];
+      if (c4 === 4) return ['四点红', '状元', 'top'];
+      if (straight) return ['对堂', '榜眼', ''];
+      if (c4 === 3) return ['三红', '探花', ''];
+      if (maxCount === 4) return ['四进', '进士', ''];
+      if (c4 === 2) return ['二举', '举人', ''];
+      if (c4 === 1) return ['一秀', '秀才', ''];
+      return ['白堂', '', ''];
+    }
+    var FLAVOR = {
+      '状元': '好彩头！电饭煲在向你招手',
+      '榜眼': '电磁炉稳稳到手！',
+      '探花': '一箱牛奶抱回家！',
+      '进士': '精美好礼离你更近一步',
+      '举人': '稳稳的幸福，好礼有你份',
+      '秀才': '小彩头到手，再掷更佳',
+      '': '差一点点，再掷一次！'
+    };
+
+    [1, 2, 3, 4, 5, 6].forEach(function (v) {
+      var d = document.createElement('div');
+      d.className = 'die';
+      row.appendChild(d);
+      dice.push(d);
+      renderDie(d, v);
+    });
+
+    btn.addEventListener('click', function () {
+      btn.disabled = true;
+      dice.forEach(function (d) { d.classList.add('rolling'); });
+      var timer = setInterval(function () {
+        dice.forEach(function (d) { renderDie(d, 1 + Math.floor(Math.random() * 6)); });
+      }, 90);
+      setTimeout(function () {
+        clearInterval(timer);
+        dice.forEach(function (d) { d.classList.remove('rolling'); });
+        var vals = dice.map(function (d) { return +d.dataset.v; });
+        var t = bobingTitle(vals);
+        result.innerHTML = '博中「' + t[0] + '」' +
+          (t[1] ? '<span class="tier ' + t[2] + '">' + t[1] + '</span>' : '') +
+          '<span class="flavor">' + FLAVOR[t[1]] + '</span>';
+        btn.disabled = false;
+      }, 750);
+    });
   })();
 </script>
 </body>
