@@ -229,7 +229,6 @@
   .prize.top .grade { background: linear-gradient(160deg, #d8433a, #a5251c); }
   .prize .name { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: var(--ink); }
   .prize .name small { font-size: 12.5px; font-weight: 400; color: var(--ink-soft); letter-spacing: 1px; margin-left: 8px; }
-  .prize-extra { margin-top: 10px; text-align: center; font-size: 14px; letter-spacing: 1px; color: var(--ink-soft); }
 
   .pg-label {
     display: flex; align-items: center; gap: 10px;
@@ -263,6 +262,7 @@
     transition: transform .2s ease;
   }
   .riddle-btn:hover { transform: translateY(-2px); }
+  .riddle-time { margin-top: 12px; font-size: 13.5px; letter-spacing: 1px; color: var(--ink-soft); }
 
   /* 博饼小游戏 */
   .bobing { text-align: center; }
@@ -283,13 +283,12 @@
     0%, 100% { transform: rotate(-9deg) translateY(0); }
     50% { transform: rotate(11deg) translateY(-5px); }
   }
-  .game-result { min-height: 58px; margin: 12px auto 4px; font-size: 19px; font-weight: 700; letter-spacing: 2px; color: var(--ink); }
+  .game-result { min-height: 42px; margin: 12px auto 4px; font-size: 19px; font-weight: 700; letter-spacing: 2px; color: var(--ink); }
   .game-result .tier {
     display: inline-block; margin-left: 8px; padding: 3px 14px; border-radius: 999px;
     color: #fff7ea; background: linear-gradient(160deg, #d8a24a, #b07514); font-size: 15px;
   }
   .game-result .tier.top { background: linear-gradient(160deg, #d8433a, #a5251c); }
-  .game-result .flavor { display: block; margin-top: 7px; font-size: 14px; font-weight: 400; letter-spacing: 1px; color: var(--ink-soft); }
   .roll-btn {
     margin-top: 10px; padding: 12px 36px; font-family: inherit;
     font-size: 17px; letter-spacing: 4px; text-indent: 4px;
@@ -441,6 +440,7 @@
         <h3>线上灯谜</h3>
         <p>千条灯谜在线猜，动动手指赢好彩头：</p>
         <a class="riddle-btn" href="https://ks.wjx.com/vm/tEMzglx.aspx#" target="_blank" rel="noopener">👉 点击参与线上灯谜</a>
+        <p class="riddle-time">⏰ 活动时间：2026年9月23日 18:30-21:00</p>
       </div>
     </div>
   </section>
@@ -459,7 +459,10 @@
       <div class="prize"><span class="grade">榜　眼</span><span class="name">电磁炉</span></div>
       <div class="prize"><span class="grade">探　花</span><span class="name">一箱牛奶</span></div>
     </div>
-    <p class="prize-extra">更多精美好礼等你带回家</p>
+    <div class="pg-label"><span class="lv">玩</span>第三类 · 参与</div>
+    <div class="prize-list">
+      <div class="prize"><span class="grade">参与奖</span><span class="name">现场小游戏和线上灯谜<small>还有更多精美好礼</small></span></div>
+    </div>
   </section>
 
   <section class="bobing reveal">
@@ -516,17 +519,17 @@
 
     // 判定等级与奖品区命名一致：状元 > 榜眼 > 探花 > 进士 > 举人 > 秀才 > 无等级
     function bobingTitle(d) {
-      var counts = {}, c4 = 0, maxCount = 0, sum = 0, k;
-      d.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; if (x === 4) c4++; sum += x; });
+      var counts = {}, c4 = 0, maxCount = 0, k;
+      d.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; if (x === 4) c4++; });
       for (k in counts) if (counts[k] > maxCount) maxCount = counts[k];
       var straight = [1, 2, 3, 4, 5, 6].every(function (x) { return counts[x] === 1; });
-      if (c4 >= 4) return ['状元', 'top', '好彩头！电饭煲在向你招手'];
-      if (straight) return ['榜眼', '', '电磁炉稳稳到手！'];
-      if (c4 === 3) return ['探花', '', '一箱牛奶抱回家！'];
-      if (maxCount === 4) return ['进士', '', '精美好礼离你更近一步'];
-      if (c4 === 2) return ['举人', '', '稳稳的幸福，好礼有你份'];
-      if (c4 === 1) return ['秀才', '', '小彩头到手，再掷更佳'];
-      return ['无等级', '', '点数总和 ' + sum + '，差一点点，再掷一次！'];
+      if (c4 >= 4) return ['状元', 'top'];
+      if (straight) return ['榜眼', ''];
+      if (c4 === 3) return ['探花', ''];
+      if (maxCount === 4) return ['进士', ''];
+      if (c4 === 2) return ['举人', ''];
+      if (c4 === 1) return ['秀才', ''];
+      return ['无等级', ''];
     }
 
     [1, 2, 3, 4, 5, 6].forEach(function (v) {
@@ -567,8 +570,7 @@
         dice.forEach(function (d, i) { renderDie(d, finalVals[i]); d.classList.remove('rolling'); });
         var t = bobingTitle(finalVals);
         var lead = t[0] === '无等级' ? '本次' : '博中';
-        result.innerHTML = lead + '<span class="tier ' + t[1] + '">' + t[0] + '</span>' +
-          '<span class="flavor">' + t[2] + '</span>';
+        result.innerHTML = lead + '<span class="tier ' + t[1] + '">' + t[0] + '</span>';
         btn.disabled = false;
       }, 750);
     });
