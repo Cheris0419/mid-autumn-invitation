@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>福满中秋 · 兴享游园 — 邀请函</title>
+<meta name="description" content="丽珠福兴邀您一起过中秋：2026.09.23 晚 18:30，公司篮球场不见不散！">
+<style>
+  :root {
+    --ink: #5b3a1e;
+    --ink-soft: #7a5230;
+    --gold: #c8892a;
+    --gold-deep: #a86a12;
+    --red: #c0392b;
+    --paper: #fdf6e9;
+    --paper-deep: #f7e9d0;
+    --night1: #1d2a4d;
+    --night2: #2c3e6b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Kaiti SC", "STKaiti", KaiTi, "Noto Serif SC", "Songti SC", SimSun, serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 500px at 50% -100px, rgba(255, 214, 150, .28), transparent 60%),
+      radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,.9) 50%, transparent 51%),
+      radial-gradient(2px 2px at 82% 12%, rgba(255,255,255,.8) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 30% 8%, rgba(255,255,255,.7) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 62% 22%, rgba(255,255,255,.6) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 90% 30%, rgba(255,255,255,.5) 50%, transparent 51%),
+      linear-gradient(180deg, var(--night1), var(--night2) 55%, #1a2544);
+    min-height: 100vh;
+    padding: 28px 12px 48px;
+  }
+
+  /* ===== 页面装饰：月亮 / 云 / 灯笼 ===== */
+  .moon {
+    position: fixed; top: 34px; right: calc(50% - 218px); z-index: 0;
+    width: 74px; height: 74px; border-radius: 50%;
+    background: radial-gradient(circle at 34% 34%, #fff8e3, #ffe9ae 58%, #f6d389);
+    box-shadow: 0 0 34px 10px rgba(255, 226, 156, .35);
+    pointer-events: none;
+  }
+  @media (max-width: 560px) { .moon { right: 18px; top: 20px; width: 58px; height: 58px; } }
+  .lantern {
+    position: fixed; z-index: 0; top: -8px; pointer-events: none;
+    animation: sway 5.5s ease-in-out infinite; transform-origin: top center;
+  }
+  .lantern.l1 { left: calc(50% - 232px); animation-delay: .3s; }
+  .lantern.l2 { right: calc(50% - 240px); top: -14px; animation-delay: 1.4s; }
+  @media (max-width: 560px) { .lantern.l1 { left: 10px; } .lantern.l2 { right: 8px; } }
+  @keyframes sway {
+    0%, 100% { transform: rotate(2.4deg); }
+    50% { transform: rotate(-2.4deg); }
+  }
+  .cloud-float { position: fixed; z-index: 0; opacity: .5; pointer-events: none; animation: drift 26s linear infinite; }
+  .cloud-float.c1 { top: 120px; left: -160px; }
+  .cloud-float.c2 { top: 340px; left: -220px; animation-delay: -12s; opacity: .35; }
+  @media (max-width: 560px) { .cloud-float { display: none; } }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 320px)); } }
+
+  /* ===== 邀请函卡片 ===== */
+  .card {
+    position: relative; z-index: 1;
+    max-width: 460px; margin: 0 auto;
+    background:
+      radial-gradient(500px 260px at 88% -40px, rgba(255, 230, 180, .55), transparent 70%),
+      linear-gradient(180deg, #fefaf1, var(--paper) 42%, var(--paper-deep));
+    border: 1px solid rgba(168, 106, 18, .35);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(8, 12, 30, .55), 0 0 0 6px rgba(253, 244, 224, .08);
+    padding: 30px 26px 34px;
+    overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 9px;
+    border: 1px solid rgba(168, 106, 18, .4);
+    border-radius: 12px; pointer-events: none;
+  }
+  .card::after {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: .55;
+  }
+
+  /* 左侧竖排寄语 */
+  .side-motto {
+    position: absolute; top: 26px; left: 18px;
+    writing-mode: vertical-rl; letter-spacing: 10px;
+    font-size: 15px; color: rgba(91, 58, 30, .85);
+  }
+  @media (max-width: 400px) { .side-motto { display: none; } }
+
+  /* 云纹角饰 */
+  .corner { position: absolute; width: 64px; height: 64px; opacity: .5; pointer-events: none; }
+  .corner.tr { top: 14px; right: 12px; }
+  .corner.bl { bottom: 14px; left: 12px; transform: rotate(180deg); }
+
+  header.hero { text-align: center; padding: 6px 0 4px; }
+  .hero-sub {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; letter-spacing: 6px; color: var(--ink-soft);
+  }
+  .hero-sub::before, .hero-sub::after {
+    content: ""; width: 34px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .hero-sub::after { background: linear-gradient(90deg, var(--gold), transparent); }
+  .hero-title {
+    margin-top: 14px;
+    font-size: 40px; line-height: 1.32; font-weight: 700; letter-spacing: 4px;
+    color: var(--ink);
+  }
+  .hero-title .accent { color: var(--gold-deep); }
+  .seal {
+    display: inline-block; vertical-align: 10px;
+    margin-right: 12px; padding: 5px 5px;
+    background: linear-gradient(160deg, #d8433a, #b02f26);
+    color: #fff7ea; border-radius: 8px;
+    font-size: 17px; line-height: 1.05; letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    box-shadow: inset 0 0 0 1.5px rgba(255, 245, 230, .75), 0 2px 6px rgba(176, 47, 38, .4);
+    transform: rotate(-3deg);
+  }
+  .invite-word {
+    margin: 18px auto 2px; width: max-content;
+    font-size: 58px; font-weight: 800; letter-spacing: 10px; text-indent: 10px;
+    background: linear-gradient(180deg, #f6cf6f 8%, #e2a63d 38%, #b26f12 62%, #8c5106 90%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: var(--gold-deep);
+    filter: drop-shadow(0 3px 2px rgba(140, 81, 6, .25));
+  }
+  .hero-note { margin-top: 10px; font-size: 15px; letter-spacing: 2px; color: var(--ink-soft); }
+
+  .divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 26px 8px 22px; color: var(--gold);
+  }
+  .divider::before, .divider::after {
+    content: ""; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200, 137, 42, .65));
+  }
+  .divider::after { background: linear-gradient(90deg, rgba(200, 137, 42, .65), transparent); }
+  .divider .diamond { width: 9px; height: 9px; background: var(--gold); transform: rotate(45deg); }
+
+  /* 基本信息条 */
+  .meta { display: grid; gap: 12px; padding: 0 6px; }
+  .meta-row {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255, 252, 244, .8);
+    border: 1px solid rgba(200, 137, 42, .3);
+    border-radius: 12px; padding: 12px 16px;
+  }
+  .meta-row .ico {
+    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: linear-gradient(160deg, #f3d491, #d9a44a);
+    color: #6b430f; font-size: 17px;
+  }
+  .meta-row .lbl { font-size: 15px; color: var(--ink-soft); letter-spacing: 1px; flex: none; }
+  .meta-row .val { font-size: 16.5px; font-weight: 700; color: var(--red); letter-spacing: .5px; white-space: nowrap; }
+  @media (max-width: 380px) { .meta-row .val { white-space: normal; font-size: 15px; } }
+  .meta-row .val.plain { color: var(--ink); }
+  .welcome { text-align: center; margin-top: 16px; font-size: 17px; letter-spacing: 1.5px; }
+  .welcome b { color: var(--gold-deep); }
+
+  /* 温馨提示 */
+  .notice {
+    margin: 18px 4px 0; padding: 13px 16px;
+    border: 1px dashed rgba(192, 57, 43, .55);
+    border-radius: 12px; background: rgba(192, 57, 43, .06);
+    font-size: 14px; line-height: 1.75; color: var(--red);
+  }
+  .notice b { letter-spacing: 1px; }
+
+  section { margin-top: 8px; }
+  h2.sec {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 26px 4px 16px; font-size: 23px; letter-spacing: 3px; color: var(--ink);
+  }
+  h2.sec .tag { font-size: 12px; letter-spacing: 3px; color: var(--gold-deep); }
+
+  /* 流程时间轴 */
+  .timeline { position: relative; margin: 4px 10px 0 16px; padding-left: 24px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px;
+    background: linear-gradient(180deg, rgba(200,137,42,.2), rgba(200,137,42,.7), rgba(200,137,42,.2));
+  }
+  .tl-item { position: relative; padding: 0 0 18px 8px; }
+  .tl-item:last-child { padding-bottom: 2px; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -24px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f3d491, #cf9434);
+    box-shadow: 0 0 0 3px rgba(207, 148, 52, .18);
+  }
+  .tl-item .t { font-size: 15px; font-weight: 700; color: var(--gold-deep); letter-spacing: 1px; }
+  .tl-item .e { font-size: 16.5px; margin-top: 2px; letter-spacing: 1.5px; }
+  .tl-item .d { font-size: 13.5px; color: var(--ink-soft); margin-top: 2px; }
+
+  /* 亮点卡片 */
+  .hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hl {
+    background: rgba(255, 252, 244, .85);
+    border: 1px solid rgba(200, 137, 42, .32);
+    border-radius: 14px; padding: 16px 14px;
+    text-align: center; box-shadow: 0 3px 10px rgba(168, 106, 18, .08);
+  }
+  .hl.big { grid-column: 1 / -1; }
+  .hl .ico { font-size: 30px; line-height: 1; }
+  .hl h3 { margin-top: 8px; font-size: 18.5px; letter-spacing: 2px; color: var(--ink); }
+  .hl p { margin-top: 6px; font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); }
+
+  .songs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; }
+  .songs span {
+    font-size: 13.5px; letter-spacing: 1px; color: #6b430f;
+    background: linear-gradient(160deg, #f9e9c6, #f0d49a);
+    border: 1px solid rgba(168, 106, 18, .35);
+    border-radius: 999px; padding: 5px 12px;
+  }
+
+  /* 奖品 */
+  .prize-list { display: grid; gap: 10px; }
+  .prize {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255, 252, 244, .85);
+    border: 1px solid rgba(200, 137, 42, .32);
+    border-radius: 12px; padding: 11px 16px;
+  }
+  .prize .grade {
+    flex: none; width: 68px; text-align: center;
+    font-size: 15.5px; font-weight: 700; letter-spacing: 2px;
+    color: #fff7ea; background: linear-gradient(160deg, #d8a24a, #b07514);
+    border-radius: 8px; padding: 6px 0;
+  }
+  .prize.top .grade { background: linear-gradient(160deg, #d8433a, #a5251c); }
+  .prize .name { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: var(--ink); }
+  .prize .name small { font-size: 12.5px; font-weight: 400; color: var(--ink-soft); letter-spacing: 1px; margin-left: 8px; }
+  .prize-extra { margin-top: 10px; text-align: center; font-size: 14px; letter-spacing: 1px; color: var(--ink-soft); }
+
+  .abc { margin-top: 16px; display: grid; gap: 10px; }
+  .abc-row {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: rgba(255, 252, 244, .7);
+    border: 1px solid rgba(200, 137, 42, .25);
+    border-radius: 12px; padding: 11px 14px;
+  }
+  .abc-row .lv {
+    flex: none; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; margin-top: 2px;
+    font-size: 15px; font-weight: 700; color: #fff7ea;
+    background: linear-gradient(160deg, #d8a24a, #b07514);
+  }
+  .abc-row:nth-child(1) .lv { background: linear-gradient(160deg, #d8433a, #a5251c); }
+  .abc-row p { font-size: 14px; line-height: 1.8; letter-spacing: .5px; color: var(--ink); }
+  .abc-row p b { color: var(--gold-deep); margin-right: 6px; }
+
+  /* 尾部 */
+  footer { text-align: center; margin-top: 30px; }
+  .footer-motto { font-size: 21px; letter-spacing: 3px; color: var(--ink); }
+  .footer-sub { margin-top: 6px; font-size: 14px; letter-spacing: 2px; color: var(--ink-soft); }
+  .qr-box {
+    width: max-content; margin: 18px auto 0; padding: 10px 10px 6px;
+    background: #fff; border: 1px solid rgba(168, 106, 18, .35); border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(168, 106, 18, .15);
+  }
+  .qr-box img { display: block; width: 118px; height: 118px; }
+  .qr-tip { margin-top: 12px; font-size: 13.5px; letter-spacing: 1.5px; color: var(--ink-soft); }
+  .qr-tip a { color: var(--gold-deep); text-decoration: none; border-bottom: 1px dotted var(--gold-deep); }
+  .org { margin-top: 16px; font-size: 15px; letter-spacing: 4px; color: var(--ink-soft); }
+
+  /* 入场动画 */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .lantern, .cloud-float { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="moon" aria-hidden="true"></div>
+
+<svg class="lantern l1" width="46" height="118" viewBox="0 0 46 118" aria-hidden="true">
+  <line x1="23" y1="0" x2="23" y2="26" stroke="#8c5106" stroke-width="1.6"/>
+  <rect x="16" y="24" width="14" height="6" rx="2" fill="#a86a12"/>
+  <ellipse cx="23" cy="58" rx="20" ry="26" fill="#d8433a"/>
+  <ellipse cx="23" cy="58" rx="20" ry="26" fill="none" stroke="#a5251c" stroke-width="1.4"/>
+  <path d="M13 34 C 8 50, 8 66, 13 82 M23 32 C 23 50, 23 66, 23 84 M33 34 C 38 50, 38 66, 33 82" stroke="#f6cf6f" stroke-width="1" fill="none" opacity=".7"/>
+  <rect x="17" y="82" width="12" height="5" rx="2" fill="#a86a12"/>
+  <line x1="23" y1="87" x2="23" y2="102" stroke="#c8892a" stroke-width="1.4"/>
+  <circle cx="23" cy="106" r="3.4" fill="#f6cf6f"/>
+</svg>
+<svg class="lantern l2" width="38" height="100" viewBox="0 0 46 118" aria-hidden="true">
+  <line x1="23" y1="0" x2="23" y2="26" stroke="#8c5106" stroke-width="1.6"/>
+  <rect x="16" y="24" width="14" height="6" rx="2" fill="#a86a12"/>
+  <ellipse cx="23" cy="58" rx="20" ry="26" fill="#e2a63d"/>
+  <ellipse cx="23" cy="58" rx="20" ry="26" fill="none" stroke="#b07514" stroke-width="1.4"/>
+  <path d="M13 34 C 8 50, 8 66, 13 82 M23 32 C 23 50, 23 66, 23 84 M33 34 C 38 50, 38 66, 33 82" stroke="#fff3d6" stroke-width="1" fill="none" opacity=".8"/>
+  <rect x="17" y="82" width="12" height="5" rx="2" fill="#a86a12"/>
+  <line x1="23" y1="87" x2="23" y2="100" stroke="#c8892a" stroke-width="1.4"/>
+  <circle cx="23" cy="104" r="3.2" fill="#f6cf6f"/>
+</svg>
+
+<svg class="cloud-float c1" width="220" height="60" viewBox="0 0 220 60" aria-hidden="true">
+  <g fill="none" stroke="#e8d5ae" stroke-width="3" stroke-linecap="round">
+    <path d="M18 42 h58 a13 13 0 1 0 -8 -23 a16 16 0 0 0 -31 4 a11 11 0 0 0 -19 19"/>
+    <path d="M120 50 h72 a11 11 0 1 0 -6 -20 a13 13 0 0 0 -25 3 a9 9 0 0 0 -41 17" opacity=".7"/>
+  </g>
+</svg>
+<svg class="cloud-float c2" width="180" height="50" viewBox="0 0 220 60" aria-hidden="true">
+  <g fill="none" stroke="#e8d5ae" stroke-width="3" stroke-linecap="round">
+    <path d="M18 42 h58 a13 13 0 1 0 -8 -23 a16 16 0 0 0 -31 4 a11 11 0 0 0 -19 19"/>
+  </g>
+</svg>
+
+<main class="card">
+  <div class="side-motto">丽珠福兴邀您一起过中秋</div>
+
+  <svg class="corner tr" viewBox="0 0 64 64" aria-hidden="true">
+    <g fill="none" stroke="#c8892a" stroke-width="2" stroke-linecap="round">
+      <path d="M8 40 h26 a10 10 0 1 0 -6 -18 a12 12 0 0 0 -23 3 a8 8 0 0 0 3 15"/>
+      <circle cx="52" cy="14" r="2.6" fill="#c8892a" stroke="none"/>
+    </g>
+  </svg>
+  <svg class="corner bl" viewBox="0 0 64 64" aria-hidden="true">
+    <g fill="none" stroke="#c8892a" stroke-width="2" stroke-linecap="round">
+      <path d="M8 40 h26 a10 10 0 1 0 -6 -18 a12 12 0 0 0 -23 3 a8 8 0 0 0 3 15"/>
+      <circle cx="52" cy="14" r="2.6" fill="#c8892a" stroke="none"/>
+    </g>
+  </svg>
+
+  <header class="hero">
+    <div class="hero-sub">中 秋 户 外 派 对</div>
+    <h1 class="hero-title"><span class="seal">中秋</span>福满中秋<br><span class="accent">兴享游园</span></h1>
+    <div class="invite-word">邀请函</div>
+    <p class="hero-note">明月寄相思 · 团圆共此时</p>
+  </header>
+
+  <div class="divider"><span class="diamond"></span></div>
+
+  <div class="meta reveal">
+    <div class="meta-row">
+      <span class="ico">📅</span>
+      <span class="lbl">活动时间</span>
+      <span class="val">2026.09.23&nbsp;&nbsp;18:30 起</span>
+    </div>
+    <div class="meta-row">
+      <span class="ico">📍</span>
+      <span class="lbl">活动地点</span>
+      <span class="val">篮球场</span>
+    </div>
+  </div>
+
+  <p class="welcome reveal"><b>诚邀</b>福兴员工与家属，共襄盛会</p>
+
+  <div class="notice reveal">
+    <b>温馨提示：</b>为保障活动如期开展，请各位同事于 <b>2026 年 9 月 22 日晚</b>将车辆移出篮球场。
+  </div>
+
+  <section class="reveal">
+    <h2 class="sec">活动流程 <span class="tag">SCHEDULE</span></h2>
+    <div class="timeline">
+      <div class="tl-item"><div class="t">09:00 – 18:00</div><div class="e">布 场</div></div>
+      <div class="tl-item"><div class="t">18:00 – 18:20</div><div class="e">入 场</div><div class="d">签到入场，领取游园通行</div></div>
+      <div class="tl-item"><div class="t">18:20 – 18:30</div><div class="e">开 幕</div></div>
+      <div class="tl-item"><div class="t">18:30 – 21:00</div><div class="e">博饼 · 游戏抽奖 · K 歌</div><div class="d">八大看点轮番登场，惊喜连连</div></div>
+      <div class="tl-item"><div class="t">21:00 – 21:30</div><div class="e">撤 场</div><div class="d">满载而归，月下道别</div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 class="sec">活动亮点 <span class="tag">HIGHLIGHTS</span></h2>
+    <div class="hl-grid">
+      <div class="hl">
+        <div class="ico">🥮</div>
+        <h3>博饼大会</h3>
+        <p>掷骰夺状元<br>好彩头一博到底</p>
+      </div>
+      <div class="hl">
+        <div class="ico">🎡</div>
+        <h3>游戏抽奖</h3>
+        <p>8 大小游戏畅玩<br>边玩边抽惊喜奖</p>
+      </div>
+      <div class="hl big">
+        <div class="ico">🎤</div>
+        <h3>K 歌挑战</h3>
+        <p>中秋挑战曲目共 8 首，唱响月圆之夜：</p>
+        <div class="songs">
+          <span>但愿人长久</span><span>夜空中最亮的星</span><span>月亮惹的祸</span><span>爱你</span>
+          <span>月亮之上</span><span>青花瓷</span><span>知否知否</span><span>画心</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 class="sec">奖品设置 <span class="tag">PRIZES</span></h2>
+    <div class="prize-list">
+      <div class="prize top"><span class="grade">特等奖</span><span class="name">电动车</span></div>
+      <div class="prize"><span class="grade">一等奖</span><span class="name">洗衣机</span></div>
+      <div class="prize"><span class="grade">二等奖</span><span class="name">小冰箱</span></div>
+      <div class="prize"><span class="grade">三等奖</span><span class="name">电饭煲</span></div>
+    </div>
+    <p class="prize-extra">更有精美行李箱等多重好礼等你带回家</p>
+
+    <div class="abc">
+      <div class="abc-row"><span class="lv">A</span><p><b>A 类好礼</b>工会礼盒、加多宝礼盒、手提行李箱、油、洗衣液</p></div>
+      <div class="abc-row"><span class="lv">B</span><p><b>B 类好礼</b>洗洁精、毛巾、垃圾袋、纸巾（提）、薯片、饮料、奶茶</p></div>
+      <div class="abc-row"><span class="lv">C</span><p><b>C 类好礼</b>泡面、果冻、饮料、纸巾（条）、肥皂</p></div>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <div class="divider"><span class="diamond"></span></div>
+    <div class="footer-motto">丽珠福兴邀您一起过中秋</div>
+    <div class="footer-sub">2026.09.23 晚 18:30<br>公司篮球场不见不散</div>
+    <div class="qr-box">
+      <img src="data:image/png;base64,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" alt="活动详情二维码">
+    </div>
+    <p class="qr-tip">长按识别或扫描二维码，查看活动详情<br>详情页：<a href="https://h5.eqxiu.com/s/pPbhgXaz" target="_blank" rel="noopener">h5.eqxiu.com/s/pPbhgXaz</a></p>
+    <p class="org">—— 丽珠福兴 · 敬上 ——</p>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('on'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
