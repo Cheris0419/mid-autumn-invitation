@@ -147,20 +147,20 @@
   /* 基本信息条 */
   .meta { display: grid; gap: 12px; padding: 0 6px; }
   .meta-row {
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; gap: 14px;
     background: rgba(255, 252, 244, .8);
     border: 1px solid rgba(200, 137, 42, .3);
-    border-radius: 12px; padding: 12px 16px;
+    border-radius: 12px; padding: 12px 18px;
   }
   .meta-row .ico {
-    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    flex: none; width: 38px; height: 38px; border-radius: 50%;
     display: grid; place-items: center;
     background: linear-gradient(160deg, #f3d491, #d9a44a);
-    color: #6b430f; font-size: 17px;
+    color: #6b430f; font-size: 18px;
   }
-  .meta-row .lbl { font-size: 15px; color: var(--ink-soft); letter-spacing: 1px; flex: none; }
-  .meta-row .val { font-size: 15.5px; font-weight: 700; color: var(--red); letter-spacing: .5px; white-space: nowrap; }
-  @media (max-width: 380px) { .meta-row .val { white-space: normal; font-size: 14.5px; } }
+  .meta-text { display: flex; flex-direction: column; gap: 3px; }
+  .meta-row .lbl { font-size: 14px; color: var(--ink-soft); letter-spacing: 2px; }
+  .meta-row .val { font-size: 17.5px; font-weight: 700; color: var(--red); letter-spacing: .5px; }
   .meta-row .val.plain { color: var(--ink); }
   .welcome { text-align: center; margin-top: 16px; font-size: 17px; letter-spacing: 1.5px; }
   .welcome b { color: var(--gold-deep); }
@@ -267,9 +267,9 @@
   /* 博饼小游戏 */
   .bobing { text-align: center; }
   .game-intro { font-size: 14.5px; color: var(--ink-soft); letter-spacing: 1px; }
-  .dice-row { display: flex; justify-content: center; gap: 10px; margin: 18px 0 4px; flex-wrap: wrap; }
+  .dice-row { display: grid; grid-template-columns: repeat(3, 48px); gap: 14px; justify-content: center; margin: 18px auto 4px; }
   .die {
-    width: 46px; height: 46px; border-radius: 10px;
+    width: 48px; height: 48px; border-radius: 10px;
     background: linear-gradient(160deg, #fffdf6, #f7ecd4);
     border: 1.5px solid rgba(168, 106, 18, .45);
     box-shadow: 0 3px 8px rgba(168, 106, 18, .18);
@@ -373,13 +373,17 @@
   <div class="meta reveal">
     <div class="meta-row">
       <span class="ico">📅</span>
-      <span class="lbl">活动时间</span>
-      <span class="val">2026.09.23&nbsp;18:30</span>
+      <div class="meta-text">
+        <span class="lbl">活动时间</span>
+        <span class="val">2026.09.23&nbsp;18:30</span>
+      </div>
     </div>
     <div class="meta-row">
       <span class="ico">📍</span>
-      <span class="lbl">活动地点</span>
-      <span class="val">篮球场</span>
+      <div class="meta-text">
+        <span class="lbl">活动地点</span>
+        <span class="val">篮球场</span>
+      </div>
     </div>
   </div>
 
