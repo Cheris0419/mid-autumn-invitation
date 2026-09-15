@@ -282,7 +282,7 @@
     padding: 26px 18px 24px; margin-top: 18px;
   }
   .live-decor { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-  .live-inner { position: relative; z-index: 1; }
+  .live-inner { position: relative; z-index: 1; padding-top: 69%; }
   .live-qr {
     width: max-content; margin: 16px auto 0; padding: 9px 9px 6px;
     background: #fff; border-radius: 12px;
@@ -291,6 +291,10 @@
   .live-qr img { display: block; width: 128px; height: 128px; }
   .live-tip { margin-top: 10px; font-size: 14px; letter-spacing: 2px; color: #6b4a20; }
   .live-panel .footer-sub { color: #6b4a20; }
+  .live-company {
+    margin-top: 16px; font-size: 15px; letter-spacing: 3px;
+    color: #fffdf4; text-shadow: 0 1px 3px rgba(122, 82, 20, .5);
+  }
 
   /* 博饼小游戏 */
   .bobing { text-align: center; }
@@ -509,91 +513,138 @@
 
   <footer class="reveal">
     <div class="live-panel">
-      <svg class="live-decor" viewBox="0 0 408 420" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+      <svg class="live-decor" viewBox="0 0 408 630" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
         <defs>
-          <radialGradient id="moonG" cx="42%" cy="38%" r="72%">
+          <radialGradient id="moonG" cx="42%" cy="36%" r="75%">
             <stop offset="0%" stop-color="#fffef8"/>
-            <stop offset="55%" stop-color="#fdf3d2"/>
-            <stop offset="100%" stop-color="#f3dda2"/>
+            <stop offset="58%" stop-color="#fdf3d0"/>
+            <stop offset="100%" stop-color="#f1d99e"/>
           </radialGradient>
+          <g id="ocluster">
+            <circle cx="0" cy="0" r="8" fill="#f2b53c"/>
+            <circle cx="11" cy="5" r="7" fill="#f6cf6f"/>
+            <circle cx="-10" cy="6" r="6.5" fill="#e9a63a"/>
+            <circle cx="3" cy="12" r="6" fill="#f2b53c"/>
+            <circle cx="-4" cy="-8" r="5.5" fill="#f7d06b"/>
+            <circle cx="8" cy="-5" r="5" fill="#f6cf6f"/>
+            <circle cx="0" cy="4" r="3" fill="#fbe29a"/>
+          </g>
+          <g id="oleaf">
+            <ellipse cx="0" cy="0" rx="14" ry="6" fill="#5f7d44"/>
+            <line x1="-9" y1="0" x2="9" y2="0" stroke="#4c6a37" stroke-width="1.2"/>
+          </g>
+          <g id="lantern">
+            <rect x="-8" y="-4" width="16" height="7" rx="2.5" fill="#a86a12"/>
+            <ellipse cx="0" cy="28" rx="21" ry="26" fill="#f9d976"/>
+            <ellipse cx="0" cy="28" rx="21" ry="26" fill="none" stroke="#d99a2b" stroke-width="1.6"/>
+            <path d="M-12 6 C -18 20, -18 36, -12 50 M0 3 C 0 20, 0 36, 0 53 M12 6 C 18 20, 18 36, 12 50" stroke="#eab54d" stroke-width="1.4" fill="none" opacity=".9"/>
+            <rect x="-7" y="51" width="14" height="6" rx="2.5" fill="#a86a12"/>
+            <line x1="0" y1="57" x2="0" y2="72" stroke="#c8892a" stroke-width="1.6"/>
+            <circle cx="0" cy="76" r="3.5" fill="#f2b53c"/>
+          </g>
+          <g id="lanternS">
+            <rect x="-6.5" y="-3" width="13" height="6" rx="2.2" fill="#a86a12"/>
+            <ellipse cx="0" cy="23" rx="17" ry="21" fill="#f9d976"/>
+            <ellipse cx="0" cy="23" rx="17" ry="21" fill="none" stroke="#d99a2b" stroke-width="1.4"/>
+            <path d="M-10 5 C -15 17, -15 30, -10 41 M0 3 C 0 17, 0 30, 0 43 M10 5 C 15 17, 15 30, 10 41" stroke="#eab54d" stroke-width="1.2" fill="none" opacity=".9"/>
+            <rect x="-5.5" y="41" width="11" height="5" rx="2.2" fill="#a86a12"/>
+            <line x1="0" y1="46" x2="0" y2="58" stroke="#c8892a" stroke-width="1.4"/>
+            <circle cx="0" cy="61" r="3" fill="#f2b53c"/>
+          </g>
+          <g id="rabbit">
+            <ellipse cx="-8" cy="-52" rx="6" ry="16" fill="#fffdf8" transform="rotate(-8 -8 -52)"/>
+            <ellipse cx="8" cy="-52" rx="6" ry="16" fill="#fffdf8" transform="rotate(8 8 -52)"/>
+            <ellipse cx="-8" cy="-51" rx="2.8" ry="11" fill="#f6d7d2" transform="rotate(-8 -8 -51)"/>
+            <ellipse cx="8" cy="-51" rx="2.8" ry="11" fill="#f6d7d2" transform="rotate(8 8 -51)"/>
+            <circle cx="16" cy="-12" r="5" fill="#fffdf8"/>
+            <circle cx="0" cy="-32" r="15" fill="#fffdf8"/>
+            <ellipse cx="0" cy="-11" rx="19" ry="12" fill="#fffdf8"/>
+            <circle cx="-5" cy="-34" r="2.1" fill="#4a3520"/>
+            <circle cx="5" cy="-34" r="2.1" fill="#4a3520"/>
+            <ellipse cx="-9" cy="-29" rx="3" ry="1.9" fill="#f6c9c4"/>
+            <ellipse cx="9" cy="-29" rx="3" ry="1.9" fill="#f6c9c4"/>
+            <ellipse cx="0" cy="-30" rx="1.9" ry="1.5" fill="#e8a49e"/>
+          </g>
         </defs>
-        <!-- 明月 -->
-        <circle cx="204" cy="128" r="152" fill="rgba(255,248,224,.35)"/>
-        <circle cx="204" cy="128" r="126" fill="rgba(255,251,238,.55)"/>
-        <circle cx="204" cy="128" r="106" fill="url(#moonG)"/>
+
+        <!-- 明月与光晕 -->
+        <circle cx="204" cy="205" r="165" fill="rgba(255,248,224,.32)"/>
+        <circle cx="204" cy="205" r="140" fill="rgba(255,251,238,.5)"/>
+        <circle cx="204" cy="205" r="122" fill="url(#moonG)"/>
+        <g fill="rgba(219,188,128,.4)">
+          <circle cx="160" cy="150" r="15"/>
+          <circle cx="252" cy="248" r="19"/>
+          <circle cx="140" cy="272" r="10"/>
+          <circle cx="248" cy="140" r="8"/>
+          <circle cx="196" cy="300" r="11"/>
+        </g>
+
+        <!-- 月上标题 -->
+        <text x="204" y="146" text-anchor="middle" font-size="15" letter-spacing="5" fill="#8a5a16" opacity=".9">丽珠福兴</text>
+        <text x="207" y="200" text-anchor="middle" font-size="41" font-weight="800" letter-spacing="7" fill="#43301c">福满中秋</text>
+        <text x="207" y="254" text-anchor="middle" font-size="41" font-weight="800" letter-spacing="7" fill="#43301c">兴享游园</text>
+
         <!-- 左上桂枝 -->
-        <path d="M-6 24 C 42 28, 82 52, 102 98" stroke="#7a5230" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <path d="M46 34 C 60 40, 70 52, 74 66" stroke="#7a5230" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="38" cy="24" rx="13" ry="5.5" fill="#6f8f4e" transform="rotate(-14 38 24)"/>
-        <ellipse cx="72" cy="52" rx="12" ry="5" fill="#87a55e" transform="rotate(38 72 52)"/>
-        <ellipse cx="95" cy="86" rx="11" ry="5" fill="#6f8f4e" transform="rotate(64 95 86)"/>
-        <g fill="#f2b53c">
-          <circle cx="26" cy="34" r="7"/><circle cx="38" cy="40" r="6"/><circle cx="32" cy="46" r="6"/>
-          <circle cx="58" cy="56" r="7"/><circle cx="68" cy="64" r="6"/><circle cx="56" cy="68" r="5.5"/>
-          <circle cx="88" cy="92" r="6.5"/><circle cx="97" cy="100" r="5.5"/>
-        </g>
-        <g fill="#f7d06b">
-          <circle cx="33" cy="28" r="4"/><circle cx="44" cy="34" r="3.6"/>
-          <circle cx="63" cy="50" r="4"/><circle cx="73" cy="57" r="3.6"/>
-          <circle cx="93" cy="87" r="3.8"/>
-        </g>
+        <path d="M-10 34 C 55 16, 115 42, 152 108" stroke="#6b4a2a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M60 30 C 84 40, 100 58, 106 84" stroke="#6b4a2a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <use href="#oleaf" transform="translate(46 22) rotate(-12)"/>
+        <use href="#oleaf" transform="translate(96 62) rotate(46)"/>
+        <use href="#oleaf" transform="translate(132 96) rotate(66) scale(.9)"/>
+        <use href="#ocluster" transform="translate(30 30)"/>
+        <use href="#ocluster" transform="translate(76 44) scale(.85)"/>
+        <use href="#ocluster" transform="translate(122 82) scale(.9)"/>
+        <!-- 左侧灯笼（挂自左枝） -->
+        <line x1="52" y1="96" x2="52" y2="122" stroke="#8c5106" stroke-width="2"/>
+        <use href="#lantern" transform="translate(52 126)"/>
+
         <!-- 右上桂枝 -->
-        <path d="M414 96 C 380 92, 350 96, 326 112" stroke="#7a5230" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="368" cy="92" rx="12" ry="5" fill="#87a55e" transform="rotate(-18 368 92)"/>
-        <ellipse cx="344" cy="104" rx="11" ry="5" fill="#6f8f4e" transform="rotate(12 344 104)"/>
-        <g fill="#f2b53c">
-          <circle cx="390" cy="98" r="7"/><circle cx="378" cy="106" r="6"/><circle cx="392" cy="110" r="5.5"/>
-        </g>
-        <g fill="#f7d06b"><circle cx="384" cy="99" r="3.8"/><circle cx="388" cy="104" r="3.2"/></g>
-        <!-- 玉兔坐在右枝上 -->
-        <g transform="translate(310 42)">
-          <ellipse cx="14" cy="12" rx="5.5" ry="14" fill="#fffdf8" transform="rotate(-10 14 12)"/>
-          <ellipse cx="30" cy="12" rx="5.5" ry="14" fill="#fffdf8" transform="rotate(10 30 12)"/>
-          <ellipse cx="14" cy="13" rx="2.6" ry="9.5" fill="#f6d7d2" transform="rotate(-10 14 13)"/>
-          <ellipse cx="30" cy="13" rx="2.6" ry="9.5" fill="#f6d7d2" transform="rotate(10 30 13)"/>
-          <circle cx="22" cy="32" r="14" fill="#fffdf8"/>
-          <ellipse cx="22" cy="52" rx="17" ry="12" fill="#fffdf8"/>
-          <circle cx="17" cy="30" r="2" fill="#4a3520"/>
-          <circle cx="27" cy="30" r="2" fill="#4a3520"/>
-          <ellipse cx="13" cy="35" rx="2.8" ry="1.8" fill="#f6c9c4"/>
-          <ellipse cx="31" cy="35" rx="2.8" ry="1.8" fill="#f6c9c4"/>
-          <ellipse cx="22" cy="34" rx="1.8" ry="1.4" fill="#e8a49e"/>
-        </g>
-        <!-- 灯笼：左上 -->
-        <line x1="48" y1="-4" x2="48" y2="34" stroke="#8c5106" stroke-width="2"/>
-        <rect x="40" y="32" width="16" height="7" rx="2.5" fill="#a86a12"/>
-        <ellipse cx="48" cy="62" rx="21" ry="26" fill="#f9d976"/>
-        <ellipse cx="48" cy="62" rx="21" ry="26" fill="none" stroke="#d99a2b" stroke-width="1.6"/>
-        <path d="M36 40 C 30 54, 30 70, 36 84 M48 37 C 48 54, 48 70, 48 87 M60 40 C 66 54, 66 70, 60 84" stroke="#eab54d" stroke-width="1.4" fill="none" opacity=".9"/>
-        <rect x="41" y="85" width="14" height="6" rx="2.5" fill="#a86a12"/>
-        <line x1="48" y1="91" x2="48" y2="104" stroke="#c8892a" stroke-width="1.6"/>
-        <circle cx="48" cy="108" r="3.5" fill="#f2b53c"/>
-        <!-- 灯笼：右上小 -->
-        <line x1="352" y1="14" x2="352" y2="34" stroke="#8c5106" stroke-width="1.8"/>
-        <rect x="345" y="32" width="14" height="6" rx="2.2" fill="#a86a12"/>
-        <ellipse cx="352" cy="56" rx="17" ry="21" fill="#f9d976"/>
-        <ellipse cx="352" cy="56" rx="17" ry="21" fill="none" stroke="#d99a2b" stroke-width="1.4"/>
-        <path d="M342 38 C 337 50, 337 63, 342 74 M352 36 C 352 50, 352 63, 352 77 M362 38 C 367 50, 367 63, 362 74" stroke="#eab54d" stroke-width="1.2" fill="none" opacity=".9"/>
-        <rect x="346" y="74" width="12" height="5" rx="2.2" fill="#a86a12"/>
-        <line x1="352" y1="79" x2="352" y2="90" stroke="#c8892a" stroke-width="1.4"/>
-        <circle cx="352" cy="93" r="3" fill="#f2b53c"/>
+        <path d="M418 24 C 352 34, 306 74, 288 138" stroke="#6b4a2a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M362 40 C 344 56, 334 76, 332 100" stroke="#6b4a2a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <use href="#oleaf" transform="translate(380 30) rotate(16)"/>
+        <use href="#oleaf" transform="translate(340 74) rotate(-40)"/>
+        <use href="#ocluster" transform="translate(374 42)"/>
+        <use href="#ocluster" transform="translate(330 82) scale(.85)"/>
+        <!-- 右上灯笼 -->
+        <line x1="352" y1="102" x2="352" y2="136" stroke="#8c5106" stroke-width="1.8"/>
+        <use href="#lanternS" transform="translate(352 140)"/>
+
+        <!-- 右中桂枝 + 玉兔 -->
+        <path d="M418 424 C 380 418, 348 406, 322 378" stroke="#6b4a2a" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <use href="#oleaf" transform="translate(392 414) rotate(-14)"/>
+        <use href="#ocluster" transform="translate(398 432) scale(.9)"/>
+        <use href="#rabbit" transform="translate(330 402)"/>
+        <!-- 右下灯笼 -->
+        <line x1="396" y1="446" x2="396" y2="472" stroke="#8c5106" stroke-width="1.8"/>
+        <use href="#lanternS" transform="translate(396 476)"/>
+
+        <!-- 左下桂枝 -->
+        <path d="M-10 620 C 66 592, 118 540, 140 468" stroke="#6b4a2a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M62 586 C 86 566, 100 542, 104 512" stroke="#6b4a2a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <use href="#oleaf" transform="translate(48 598) rotate(-30)"/>
+        <use href="#oleaf" transform="translate(104 536) rotate(58)"/>
+        <use href="#oleaf" transform="translate(130 486) rotate(70) scale(.9)"/>
+        <use href="#ocluster" transform="translate(38 580)"/>
+        <use href="#ocluster" transform="translate(84 550) scale(.9)"/>
+        <use href="#ocluster" transform="translate(126 496) scale(.8)"/>
+
         <!-- 飘落桂花瓣 -->
         <g fill="#f2b53c" opacity=".85">
-          <ellipse cx="120" cy="196" rx="4" ry="2.2" transform="rotate(24 120 196)"/>
-          <ellipse cx="292" cy="216" rx="4" ry="2.2" transform="rotate(-18 292 216)"/>
-          <ellipse cx="96" cy="286" rx="3.6" ry="2" transform="rotate(-30 96 286)"/>
-          <ellipse cx="318" cy="300" rx="3.6" ry="2" transform="rotate(20 318 300)"/>
-          <ellipse cx="204" cy="330" rx="3.6" ry="2" transform="rotate(40 204 330)"/>
+          <ellipse cx="100" cy="372" rx="4" ry="2.2" transform="rotate(24 100 372)"/>
+          <ellipse cx="312" cy="330" rx="4" ry="2.2" transform="rotate(-18 312 330)"/>
+          <ellipse cx="86" cy="486" rx="3.6" ry="2" transform="rotate(-30 86 486)"/>
+          <ellipse cx="318" cy="556" rx="3.6" ry="2" transform="rotate(20 318 556)"/>
+          <ellipse cx="228" cy="600" rx="3.6" ry="2" transform="rotate(40 228 600)"/>
+          <ellipse cx="150" cy="300" rx="3.4" ry="2" transform="rotate(-24 150 300)"/>
         </g>
       </svg>
       <div class="live-inner">
-        <div class="footer-motto">丽珠福兴邀您一起过中秋</div>
         <div class="footer-sub">2026.09.23 晚 18:30<br>公司篮球场不见不散</div>
         <div class="live-qr">
           <img src="data:image/png;base64,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" alt="图文直播二维码">
         </div>
         <p class="live-tip">扫码进入直播查看详情</p>
         <a class="live-btn" href="https://m.alltuu.com/album/92a7ed197d0758d1e2ed9dd9bba0fefe/?from=link&menu=live" target="_blank" rel="noopener">📷 点击查看图文直播</a>
+        <p class="live-company">丽珠集团福州福兴医药有限公司</p>
       </div>
     </div>
     <p class="org">—— 丽珠福兴 · 敬上 ——</p>
